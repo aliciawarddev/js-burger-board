@@ -374,7 +374,7 @@ body {
     top: 3rem;
     position: relative;
     right: 5rem;
-    gap: 7rem;
+    gap: 5rem;
 }
 
 /* Painting */
@@ -457,18 +457,51 @@ body {
     gap: 0;
     padding: 0;
     width: 400px;
-    height: 300px;
+    height: 320px;
 }
 
+
+/* Window top */ 
 .window-top {
     width: 400px;
-    height: 40px;
+    height: 60px;
     border: 2px solid var(--window-frame-border);
     background-color: var(--window-frame);
     position: relative;
     top: 0px;
     z-indeX: 3;
 }
+
+.window-top::before {
+    content: '';
+    position: absolute;
+    background-color: var(--window-frame-shadow);
+    border: 2px solid var(--window-frame-border);
+    border-radius: 2px;
+    right: 100%;
+    top: 5px;
+    width: 4px;
+    height: 100%;
+    transform: skewY(-45deg);
+    transform-origin: top left;
+}
+
+.window-top::after {
+    content: '';
+    position: absolute;
+    background-color: var(--window-frame-shadow);
+    border: 2px solid var(--window-frame-border);
+    border-radius: 2px;
+    top: 100%;
+    left: -1px;
+    width: 101%;
+    height: 7px;
+    transform: skewX(-45deg);
+    box-sizing: border-box;
+    transform-origin: top left;
+}
+
+/* Window - bottom */
 
 .window-bottom {
     width: 400px;
@@ -480,14 +513,73 @@ body {
     z-index: 3;
 }
 
+.window-bottom::before {
+    content: '';
+    position: absolute;
+    background-color: var(--window-frame-shadow);
+    border: 2px solid var(--window-frame-border);
+    border-radius: 2px;
+    right: 100%;
+    top: 4.5px;
+    width: 4px;
+    height: 100%;
+    transform: skewY(-45deg);
+    transform-origin: top left;
+}
+
+.window-bottom::after {
+    content: '';
+    position: absolute;
+    background-color: var(--window-frame-shadow);
+    border: 2px solid var(--window-frame-border);
+    border-radius: 2px;
+    top: 100%;
+    left: -1px;
+    width: 101%;
+    height: 7px;
+    transform: skewX(-45deg);
+    box-sizing: border-box;
+    transform-origin: top left;
+}
+
+/* Window - bottom border */
 .window-bottom-border {
     width: 380px;
-    height: 40px;
+    height: 60px;
     background-color: var(--window-frame);
     border: 2px solid var(--window-frame-border);
     border-top: none;
     position: relative;
     bottom: 0;
+}
+
+.window-bottom-border::before {
+    content: '';
+    position: absolute;
+    background-color: var(--window-frame-shadow);
+    border: 2px solid var(--window-frame-border);
+    border-radius: 2px;
+    right: 100%;
+    top: 5px;
+    width: 4px;
+    height: 100%;
+    transform: skewY(-45deg);
+    transform-origin: top left;
+}
+
+.window-bottom-border::after {
+    content: '';
+    position: absolute;
+    background-color: var(--window-frame-shadow);
+    border: 2px solid var(--window-frame-border);
+    border-radius: 2px;
+    top: 100%;
+    left: -1px;
+    width: 101%;
+    height: 7px;
+    transform: skewX(-45deg);
+    box-sizing: border-box;
+    transform-origin: top left;
 }
 
 /* Window - Middle */
@@ -501,6 +593,8 @@ body {
     position: relative;
 }
 
+
+/* Window - left side */
 .window-side-left {
     width: 30px;
     height: 260px;
@@ -510,6 +604,21 @@ body {
     position: relative;
 }
 
+.window-side-left::before {
+    content: '';
+    position: absolute;
+    background-color: var(--window-frame-shadow);
+    border: 2px solid var(--window-frame-border);
+    border-radius: 2px;
+    right: 100%;
+    top: 5px;
+    width: 4px;
+    height: 100%;
+    transform: skewY(-45deg);
+    transform-origin: top left;
+}
+
+/* Window - right side */
 .window-side-right {
     width: 30px;
     height: 260px;
@@ -519,6 +628,21 @@ body {
     position: relative;
 }
 
+.window-side-right::before {
+    content: '';
+    position: absolute;
+    background-color: var(--window-frame-shadow);
+    border: 2px solid var(--window-frame-border);
+    border-radius: 2px;
+    right: 100%;
+    top: 5px;
+    width: 4px;
+    height: 100%;
+    transform: skewY(-45deg);
+    transform-origin: top left;
+}
+
+/* Window - inside */
 .window-inside {
     height: 260px;
     width: 320px;
