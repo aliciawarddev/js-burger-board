@@ -47,6 +47,8 @@ body {
     --window-frame-border: #24375c;
     --painting-frame: #665a4d;
     --painting-frame-border: #3c2f2c;
+    --sign-border: #dde1e7;
+    --sign-text: #8b0000;
 }
 
 /* Container */
@@ -110,6 +112,7 @@ body {
 /* Chalkboard */
 .chalkboard-wrapper {
     position: relative;
+    transform: scale(0.8)
 }
 
 .board {
@@ -211,6 +214,26 @@ body {
     top: 10px;
 }
 
+.bell-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 80px;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255, 204, 102, 0.4) 0%,    /* Warm golden */
+        rgba(255, 204, 102, 0.2) 40%,
+        rgba(255, 204, 102, 0.1) 60%,
+        transparent 80%
+    );
+    z-index: -1;
+    border-radius: 50%;
+}
+
+
 .top {
     width: 10px;
     height: 10px;
@@ -300,14 +323,17 @@ body {
 .wall-trim {
     width: 100vw;
     background-color: var(--wall-trim);
-    border: 2px solid var(--wall-trim-border);
+    border-top: 2px solid var(--wall-trim-border);
+    border-bottom: 2px solid var(--wall-trim-border);
     height: 40px;
+    top: 10rem;
+    left: 0;
+    position: relative;
 }
 
 /* Wall panels */
 .wall-panels-container {
     width: 100vw;
-    height: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -316,9 +342,10 @@ body {
 
 .panel-top {
     background-color: var(--wall-trim);
-    height: 15px;
+    height: 20px;
     width: 100vw;
-    border: 2px solid var(--wall-trim-border);
+    border-top: 2px solid var(--wall-trim-border);
+    border-bottom: 2px solid var(--wall-trim-border);
 }
 
 .panels-wrapper {
@@ -326,13 +353,14 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    width: 100vw;
 }
 
 .panel {
     background-color: var(--wall-panels);
     border-right: 2px solid var(--wall-panels-border);
-    height: 50px;
-    width: 30px;
+    height: 200px;
+    width: 50px;
 }
 
 /* Wall items */
@@ -341,7 +369,11 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 50px;
+    width: 100vw;
+    top: 3rem;
+    position: relative;
+    right: 5rem;
+    gap: 7rem;
 }
 
 /* Painting */
@@ -355,8 +387,8 @@ body {
 .painting-frame {
     position: relative;
     border: 2px solid var(--painting-frame-border);
-    height: 165px;
-    width: 205px;
+    height: 180px;
+    width: 220px;
     background-color: var(--painting-frame);
     z-index: 1;
     display: flex;
@@ -366,8 +398,8 @@ body {
 
 .painting {
     border: 2px solid var(--painting-frame-border);
-    height: 145px;
-    width: 185px;
+    height: 155px;
+    width: 195px;
     z-index: 2;
     position: relative;
     background-color: #7aafd6;
@@ -377,7 +409,7 @@ body {
 }
 
 .painting-image {
-    width: 160px;
+    width: 180px;
 }
 
 /* WINDOW */
@@ -388,61 +420,78 @@ body {
     justify-content: center;
     position: relative;
     gap: 0;
+    padding: 0;
+    width: 400px;
+    height: 300px;
 }
 
+.window-top {
+    width: 400px;
+    height: 40px;
+    border: 2px solid var(--window-frame-border);
+    background-color: var(--window-frame);
+    position: relative;
+    top: 0px;
+    z-indeX: 3;
+}
+
+.window-bottom {
+    width: 400px;
+    height: 20px;
+    border: 2px solid var(--window-frame-border);
+    background-color: var(--window-frame);
+    position: relative;
+    bottom: 0;
+    z-index: 3;
+}
+
+.window-bottom-border {
+    width: 380px;
+    height: 40px;
+    background-color: var(--window-frame);
+    border: 2px solid var(--window-frame-border);
+    border-top: none;
+    position: relative;
+    bottom: 0;
+}
+
+/* Window - Middle */
 .window-sides-wrapper {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 250px;
-    height: 250px;
-    margin-top: -25px;
-}
-
-.window-top {
-    width: 260px;
-    height: 20px;
-    border: 2px solid var(--window-frame-border);
-    background-color: var(--window-frame);
-}
-
-.window-bottom {
-    width: 260px;
-    height: 10px;
-    border: 2px solid var(--window-frame-border);
-    background-color: var(--window-frame);
-    margin-top: -25px;
-}
-
-.window-bottom-border {
-    width: 240px;
-    height: 20px;
-    background-color: var(--window-frame);
-    border: 2px solid var(--window-frame-border);
+    width: 600px;
+    height: 600px;
+    position: relative;
 }
 
 .window-side-left {
-    width: 20px;
-    height: 200px;
+    width: 30px;
+    height: 260px;
     background-color: var(--window-frame);
-    border: 2px solid var(--window-frame-border);
+    border-right: 2px solid var(--window-frame-border);
+    border-left: 2px solid var(--window-frame-border);
+    position: relative;
 }
 
 .window-side-right {
-    width: 20px;
-    height: 200px;
+    width: 30px;
+    height: 260px;
     background-color: var(--window-frame);
-    border: 2px solid var(--window-frame-border);
+    border-right: 2px solid var(--window-frame-border);
+    border-left: 2px solid var(--window-frame-border);
+    position: relative;
 }
 
 .window-inside {
-    height: 200px;
-    width: 200px;
+    height: 260px;
+    width: 320px;
     background-color: var(--wall-kitchen);
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    position: relative;
 }
 
 /* Sign */
@@ -451,6 +500,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
+    top: 9rem;
 }
 
 .string-wrapper {
@@ -458,38 +509,52 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-bottom: 18px;
     z-index: 1;
+    position: relative;
+    bottom: 10px;
 }
 
 .string {
-    width: 130px;
-    height: 2px;
-    background-color: black;
+    width: 80px;
+    height: 1px;
+    background-color: var(--painting-frame-border)
 }
 
 .string.left {
     transform: rotate(-20deg);
-    margin-right: -7px;
+    margin-right: -5px;
+    z-index: 2;
 }
 
 .string.right {
     transform: rotate(20deg);
-    margin-left: -7px;
+    margin-left: -5px;
+    z-index: 2;
 }
 
 .nail {
     width: 5px;
     height: 5px;
-    background-color: black;
+    background-color: var(--bell-border);
     border-radius: 50%;
     position: relative;
-    bottom: 19px;
+    bottom: 12px;
+    z-index: 3;
 }
 
 .sign {
-    width: 250px;
-    height: 40px;
-    background-color: white;
-    z-index: 2;
+    width: 150px;
+    height: 50px;
+    background-color: var(--text);
+    z-index: 3;
+    font-family: 'caveat';
+    border: 2px solid var(--sign-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 200;
+    text-align: center;
+    color: var(--sign-text)
 }
