@@ -198,24 +198,17 @@ body {
     transform: rotate(-3deg);
 }
 
-/* Counter */
-.counter {
-    background-color: var(--counter);
-    border: 2px solid var(--counter-border);
-    width: 100vw;
-    height: 100px;
-    margin-bottom: -45px;
-}
-
 /* Bell */
 .bell-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 10px;
     cursor: pointer;
     transition: transform 0.1s ease, filter 0.2s ease;
+    transform: scale(0.7);
+    position: relative;
+    top: 10px;
 }
 
 .top {
@@ -249,8 +242,8 @@ body {
 
 /* Hover state */
 .bell-wrapper:hover {
-    transform: translateY(-1px);
-    filter: brightness(1.05); /* Subtle lighting effect */
+    transform: scale(0.7) translateY(-1.43px); /* -1px ÷ 0.7 = -1.43px */
+    filter: brightness(1.05);
 }
 
 .bell-wrapper:hover .bell {
@@ -267,7 +260,7 @@ body {
 
 /* Active state - entire bell assembly presses down */
 .bell-wrapper:active {
-    transform: translateY(2px);
+    transform: scale(0.7) translateY(2.86px); /* 2px ÷ 0.7 = 2.86px */
     animation: bellRing 0.5s ease-out, bellDing 0.2s ease-out;
     filter: brightness(0.95);
 }
@@ -286,21 +279,21 @@ body {
 
 /* Improved ring animation - more realistic bell movement */
 @keyframes bellRing {
-    0% { transform: translateY(2px) rotate(0deg); }
-    15% { transform: translateY(2px) rotate(-2deg); }
-    30% { transform: translateY(2px) rotate(1.5deg); }
-    45% { transform: translateY(2px) rotate(-1deg); }
-    60% { transform: translateY(2px) rotate(0.5deg); }
-    75% { transform: translateY(2px) rotate(-0.2deg); }
-    90% { transform: translateY(2px) rotate(0.1deg); }
-    100% { transform: translateY(2px) rotate(0deg); }
+    0% { transform: scale(0.7) translateY(2.86px) rotate(0deg); }
+    15% { transform: scale(0.7) translateY(2.86px) rotate(-2deg); }
+    30% { transform: scale(0.7) translateY(2.86px) rotate(1.5deg); }
+    45% { transform: scale(0.7) translateY(2.86px) rotate(-1deg); }
+    60% { transform: scale(0.7) translateY(2.86px) rotate(0.5deg); }
+    75% { transform: scale(0.7) translateY(2.86px) rotate(-0.2deg); }
+    90% { transform: scale(0.7) translateY(2.86px) rotate(0.1deg); }
+    100% { transform: scale(0.7) translateY(2.86px) rotate(0deg); }
 }
 
-/* Optional: Add a subtle "ding" effect */
+/* Subtle "ding" effect */
 @keyframes bellDing {
-    0% { transform: translateY(2px) scale(1); }
-    20% { transform: translateY(2px) scale(1.02); }
-    100% { transform: translateY(2px) scale(1); }
+    0% { transform: scale(0.7) translateY(2.86px) scale(1); }
+    20% { transform: scale(0.7) translateY(2.86px) scale(1.02); }
+    100% { transform: scale(0.7) translateY(2.86px) scale(1); }
 }
 
 /* WALL TRIM */
@@ -351,15 +344,6 @@ body {
     gap: 50px;
 }
 
-/* Window */
-.window-wrapper {
-    width: 100px;
-    height: 300px;
-    border: 5px solid var(--window-frame);
-    background-color: var(--wall-kitchen);
-    position: relative;
-}
-
 /* Painting */
 .painting-wrapper {
     position: relative;
@@ -394,4 +378,118 @@ body {
 
 .painting-image {
     width: 160px;
+}
+
+/* WINDOW */
+.window-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 0;
+}
+
+.window-sides-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 250px;
+    margin-top: -25px;
+}
+
+.window-top {
+    width: 260px;
+    height: 20px;
+    border: 2px solid var(--window-frame-border);
+    background-color: var(--window-frame);
+}
+
+.window-bottom {
+    width: 260px;
+    height: 10px;
+    border: 2px solid var(--window-frame-border);
+    background-color: var(--window-frame);
+    margin-top: -25px;
+}
+
+.window-bottom-border {
+    width: 240px;
+    height: 20px;
+    background-color: var(--window-frame);
+    border: 2px solid var(--window-frame-border);
+}
+
+.window-side-left {
+    width: 20px;
+    height: 200px;
+    background-color: var(--window-frame);
+    border: 2px solid var(--window-frame-border);
+}
+
+.window-side-right {
+    width: 20px;
+    height: 200px;
+    background-color: var(--window-frame);
+    border: 2px solid var(--window-frame-border);
+}
+
+.window-inside {
+    height: 200px;
+    width: 200px;
+    background-color: var(--wall-kitchen);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+/* Sign */
+.sign-whole-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.string-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    z-index: 1;
+}
+
+.string {
+    width: 130px;
+    height: 2px;
+    background-color: black;
+}
+
+.string.left {
+    transform: rotate(-20deg);
+    margin-right: -7px;
+}
+
+.string.right {
+    transform: rotate(20deg);
+    margin-left: -7px;
+}
+
+.nail {
+    width: 5px;
+    height: 5px;
+    background-color: black;
+    border-radius: 50%;
+    position: relative;
+    bottom: 19px;
+}
+
+.sign {
+    width: 250px;
+    height: 40px;
+    background-color: white;
+    z-index: 2;
 }
