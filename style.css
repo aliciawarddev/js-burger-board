@@ -46,6 +46,7 @@ body {
     --window-frame-shadow: #3d5273;
     --window-frame-border: #24375c;
     --painting-frame: #665a4d;
+    --painting-frame-shadow: #564c42;
     --painting-frame-border: #3c2f2c;
     --sign-border: #dde1e7;
     --sign-text: #8b0000;
@@ -80,28 +81,28 @@ body {
 .frame::before {
     content: '';
     position: absolute;
-    bottom: 5px;
+    top: 5px;
     right: 100%;
     width: 5px;
     height: 100.5%;
     background-color: var(--frame-shadow);
-    transform: skewY(45deg);
+    transform: skewY(-45deg);
     transform-origin: top left;
     z-index: 1;
     border: 2px solid var(--frame-border);
     border-radius: 3px;
 }
 
-/* Top depth */
+/* Bottom depth */
 .frame::after {
     content: '';
     position: absolute;
-    bottom: 100%;
-    right: 5px;
-    width: 102%;
+    top: 100%;
+    left: 0px;
+    width: 101%;
     height: 9px;
     background-color: var(--frame-shadow);
-    transform: skewX(45deg);
+    transform: skewX(-45deg);
     transform-origin: top left;
     z-index: 1;
     border: 2px solid var(--frame-border);
@@ -390,10 +391,44 @@ body {
     height: 180px;
     width: 220px;
     background-color: var(--painting-frame);
-    z-index: 1;
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
+
+}
+
+/* Left side depth*/
+.painting-frame::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    right: 99.5%;
+    width: 4px;
+    height: 100%;
+    background-color: var(--painting-frame-shadow);
+    transform: skewY(-45deg);
+    transform-origin: top left;
+    z-index: 1;
+    border: 2px solid var(--painting-frame-border);
+    border-radius: 3px;
+}
+
+/* Bottom side depth*/
+.painting-frame::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: -1px;
+    width: 102%;
+    height: 7px;
+    background-color: var(--painting-frame-shadow);
+    transform: skewX(-45deg);
+    transform-origin: top left;
+    z-index: 1;
+    border: 2px solid var(--painting-frame-border);
+    box-sizing: border-box;
+    border-radius: 3px;
 }
 
 .painting {
@@ -511,11 +546,11 @@ body {
     justify-content: center;
     z-index: 1;
     position: relative;
-    bottom: 10px;
+    bottom: 9px;
 }
 
 .string {
-    width: 80px;
+    width: 70px;
     height: 1px;
     background-color: var(--painting-frame-border)
 }
@@ -538,12 +573,12 @@ body {
     background-color: var(--bell-border);
     border-radius: 50%;
     position: relative;
-    bottom: 12px;
+    bottom: 10px;
     z-index: 3;
 }
 
 .sign {
-    width: 150px;
+    width: 140px;
     height: 50px;
     background-color: var(--text);
     z-index: 3;
@@ -552,9 +587,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-transform: uppercase;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-weight: 200;
     text-align: center;
-    color: var(--sign-text)
+    color: var(--sign-text);
+    line-height: 0.9;
+
 }
