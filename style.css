@@ -107,7 +107,11 @@ body {
     border-radius: 3px;
 }
 
-/* Board */
+/* Chalkboard */
+.chalkboard-wrapper {
+    position: relative;
+}
+
 .board {
     width: 250px;
     height: 350px;
@@ -299,4 +303,95 @@ body {
     100% { transform: translateY(2px) scale(1); }
 }
 
+/* WALL TRIM */
+.wall-trim {
+    width: 100vw;
+    background-color: var(--wall-trim);
+    border: 2px solid var(--wall-trim-border);
+    height: 40px;
+}
 
+/* Wall panels */
+.wall-panels-container {
+    width: 100vw;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel-top {
+    background-color: var(--wall-trim);
+    height: 15px;
+    width: 100vw;
+    border: 2px solid var(--wall-trim-border);
+}
+
+.panels-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel {
+    background-color: var(--wall-panels);
+    border-right: 2px solid var(--wall-panels-border);
+    height: 50px;
+    width: 30px;
+}
+
+/* Wall items */
+.wall-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+/* Window */
+.window-wrapper {
+    width: 100px;
+    height: 300px;
+    border: 5px solid var(--window-frame);
+    background-color: var(--wall-kitchen);
+    position: relative;
+}
+
+/* Painting */
+.painting-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.painting-frame {
+    position: relative;
+    border: 2px solid var(--painting-frame-border);
+    height: 165px;
+    width: 205px;
+    background-color: var(--painting-frame);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.painting {
+    border: 2px solid var(--painting-frame-border);
+    height: 145px;
+    width: 185px;
+    z-index: 2;
+    position: relative;
+    background-color: #7aafd6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.painting-image {
+    width: 160px;
+}
