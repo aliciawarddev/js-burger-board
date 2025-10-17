@@ -1,3 +1,10 @@
+
+/* Prevent zoom out */
+html {
+  touch-action: pan-x pan-y;
+  -ms-touch-action: pan-x pan-y;
+}
+
 /* Reset and base styles */
 * {
   margin: 0;
@@ -747,4 +754,66 @@ body {
     color: var(--sign-text);
     line-height: 0.9;
 
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .burger-board-container {
+    gap: 40px;
+  }
+  
+  .wall-items {
+    flex-direction: column;
+    gap: 2rem;
+    right: 0;
+    top: 1rem;
+  }
+  
+  .chalkboard-wrapper {
+    transform: scale(0.65);
+  }
+  
+  .window-wrapper {
+    transform: scale(0.7);
+  }
+  
+  .painting-wrapper {
+    transform: scale(0.7);
+  }
+  
+  .wall-trim {
+    top: 5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .burger-board-container {
+    gap: 20px;
+  }
+  
+  .chalkboard-wrapper {
+    transform: scale(0.5);
+  }
+  
+  .window-wrapper {
+    transform: scale(0.55);
+  }
+  
+  .painting-wrapper {
+    transform: scale(0.55);
+  }
+  
+  .wall-trim {
+    top: 3rem;
+  }
+}
+
+@media screen and (min-aspect-ratio: 16/9) {
+  .burger-board-container {
+    gap: 60px;
+  }
+  
+  .wall-items {
+    gap: 8rem;
+  }
 }
